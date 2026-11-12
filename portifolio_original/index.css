@@ -1,0 +1,144 @@
+/* Configurações gerais e reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+section {
+    padding: 30px 0;
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.6rem;
+    color: #0f172a;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.3rem;
+    color: #0284c7;
+    margin-bottom: 12px;
+}
+
+p {
+    margin-bottom: 15px;
+    color: #475569;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #cbd5e1;
+}
+
+/* Imagem da seção Sobre */
+#sobre img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Lista de Habilidades em formato de etiquetas (tags) */
+#habilidades ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#habilidades li {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Cartões dos Projetos */
+.cartao-projetos {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+    margin-bottom: 20px; /* Substitui a necessidade da tag <br> */
+}
+
+.cartao-projetos img {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #f1f5f9;
+}
+
+/* Botões dentro dos projetos */
+.botao-projeto {
+    margin-top: 15px;
+}
+
+.botao-projeto a {
+    display: inline-block;
+    background-color: #0f172a;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.2s;
+}
+
+.botao-projeto a:hover {
+    background-color: #0284c7;
+}
+
+/* Links da seção Contato */
+#contato ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+#contato a {
+    display: inline-block;
+    text-decoration: none;
+    color: #0f172a;
+    border: 1px solid #cbd5e1;
+    background-color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+#contato a:hover {
+    border-color: #0284c7;
+    color: #0284c7;
+}
