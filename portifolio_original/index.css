@@ -1,4 +1,50 @@
 /* Configurações gerais e reset */
+/* Ajustes específicos para telas de celular (até 600px de largura) */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    section {
+        padding: 20px 0;
+    }
+
+    /* Reduz os títulos para não ocuparem muitas linhas no celular */
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.35rem;
+    }
+
+    /* Ajusta a altura máxima das fotos dos projetos no celular */
+    .cartao-projetos {
+        padding: 16px;
+    }
+
+    .cartao-projetos img {
+        max-height: 200px;
+    }
+
+    /* Faz o botão do projeto ocupar a largura total, facilitando o clique com o polegar */
+    .botao-projeto a {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Organiza os botões de contato em coluna no celular */
+    #contato ul {
+        flex-direction: column;
+    }
+
+    #contato a {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+}
 * {
     margin: 0;
     padding: 0;
