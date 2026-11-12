@@ -1,50 +1,18 @@
-/* Configurações gerais e reset */
-/* Ajustes específicos para telas de celular (até 600px de largura) */
-@media (max-width: 600px) {
-    body {
-        padding: 15px;
-    }
 
-    section {
-        padding: 20px 0;
-    }
 
-    /* Reduz os títulos para não ocuparem muitas linhas no celular */
-    h1 {
-        font-size: 1.75rem;
-    }
 
-    h2 {
-        font-size: 1.35rem;
-    }
-
-    /* Ajusta a altura máxima das fotos dos projetos no celular */
-    .cartao-projetos {
-        padding: 16px;
-    }
-
-    .cartao-projetos img {
-        max-height: 200px;
-    }
-
-    /* Faz o botão do projeto ocupar a largura total, facilitando o clique com o polegar */
-    .botao-projeto a {
-        display: block;
-        text-align: center;
-        width: 100%;
-    }
-
-    /* Organiza os botões de contato em coluna no celular */
-    #contato ul {
-        flex-direction: column;
-    }
-
-    #contato a {
-        display: block;
-        text-align: center;
-        width: 100%;
-    }
+:root {
+    --bg: #f8fafc;
+    --bg-panel: rgba(255, 255, 255, 0.9);
+    --text: #0f172a;
+    --text-soft: #475569;
+    --line: rgba(15, 23, 42, 0.08);
+    --accent: #f59e0b;
+    --accent-strong: #d97706;
+    --accent-soft: rgba(245, 158, 11, 0.12);
+    --shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -57,134 +25,260 @@ html {
 }
 
 body {
-    background-color: #f8fafc;
-    color: #1e293b;
+    background:
+        radial-gradient(circle at top left, rgba(245, 158, 11, 0.15), transparent 25%),
+        linear-gradient(180deg, #fffaf4 0%, #f8fafc 100%);
+    color: var(--text);
     line-height: 1.6;
-    max-width: 850px;
+    max-width: 980px;
     margin: 0 auto;
-    padding: 30px 20px;
+    padding: 28px 20px 60px;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+body.tema-escuro {
+    --bg: #020817;
+    --bg-panel: rgba(15, 23, 42, 0.85);
+    --text: #f8fafc;
+    --text-soft: #cbd5e1;
+    --line: rgba(148, 163, 184, 0.2);
+    --shadow: 0 22px 50px rgba(2, 6, 23, 0.55);
+
+    background:
+        radial-gradient(circle at top, rgba(245, 158, 11, 0.12), transparent 30%),
+        linear-gradient(180deg, #020817 0%, #0f172a 100%);
+    color: var(--text);
 }
 
 section {
     padding: 30px 0;
 }
 
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+}
+
 h1 {
-    font-size: 2.2rem;
-    color: #0f172a;
-    margin-bottom: 10px;
+    font-size: clamp(2.2rem, 4vw, 3.3rem);
+    color: var(--text);
+    margin-bottom: 16px;
+    font-weight: 800;
 }
 
 h2 {
-    font-size: 1.6rem;
-    color: #0f172a;
-    margin-bottom: 20px;
+    font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+    color: var(--text);
+    margin-bottom: 18px;
+    font-weight: 800;
 }
 
 h3 {
     font-size: 1.3rem;
-    color: #0284c7;
+    color: var(--accent);
     margin-bottom: 12px;
+    font-weight: 700;
 }
 
 p {
     margin-bottom: 15px;
-    color: #475569;
+    color: var(--text-soft);
+    font-size: 1.02rem;
 }
 
 hr {
     border: none;
-    border-top: 1px solid #cbd5e1;
+    border-top: 1px solid var(--line);
+    margin: 10px 0;
 }
 
-/* Imagem da seção Sobre */
+.topo-tema {
+    display: flex;
+    justify-content: flex-end;
+    padding: 6px 0 18px;
+}
+
+.btn-tema {
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: #fff;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 10px 18px rgba(245, 158, 11, 0.25);
+}
+
+.btn-tema:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 22px rgba(245, 158, 11, 0.35);
+}
+
+#sobre {
+    position: relative;
+    padding-top: 18px;
+}
+
 #sobre img {
-    width: 100%;
-    max-width: 450px;
+    float: right;
+    width: min(100%, 360px);
+    max-width: 360px;
     height: auto;
-    border-radius: 10px;
-    margin-top: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 18px;
+    margin: 0 0 18px 30px;
+    object-fit: cover;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(245, 158, 11, 0.18);
 }
 
-/* Lista de Habilidades em formato de etiquetas (tags) */
+#sobre p {
+    max-width: 560px;
+}
+
 #habilidades ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
+    margin-top: 8px;
 }
 
 #habilidades li {
-    background-color: #e0f2fe;
-    color: #0369a1;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-weight: 600;
+    background: linear-gradient(135deg, var(--accent-soft), rgba(255,255,255,0.45));
+    color: var(--accent-strong);
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-weight: 700;
     font-size: 0.95rem;
+    border: 1px solid rgba(245, 158, 11, 0.18);
+    box-shadow: 0 8px 18px rgba(245, 158, 11, 0.08);
 }
 
-/* Cartões dos Projetos */
 .cartao-projetos {
-    background-color: #ffffff;
+    background: var(--bg-panel);
     padding: 24px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
-    margin-bottom: 20px; /* Substitui a necessidade da tag <br> */
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    margin-bottom: 22px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.cartao-projetos:hover {
+    transform: translateY(-2px);
+    border-color: rgba(245, 158, 11, 0.35);
 }
 
 .cartao-projetos img {
     width: 100%;
     max-height: 320px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #f1f5f9;
+    border-radius: 14px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(245, 158, 11, 0.15);
+    box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
 }
 
-/* Botões dentro dos projetos */
 .botao-projeto {
-    margin-top: 15px;
+    margin-top: 18px;
 }
 
 .botao-projeto a {
     display: inline-block;
-    background-color: #0f172a;
-    color: #ffffff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: #fff;
     text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: background-color 0.2s;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.96rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    box-shadow: 0 12px 22px rgba(245, 158, 11, 0.22);
 }
 
 .botao-projeto a:hover {
-    background-color: #0284c7;
+    transform: translateY(-1px);
+    box-shadow: 0 16px 26px rgba(245, 158, 11, 0.28);
 }
 
-/* Links da seção Contato */
 #contato ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
+    margin-top: 12px;
 }
 
 #contato a {
     display: inline-block;
     text-decoration: none;
-    color: #0f172a;
-    border: 1px solid #cbd5e1;
-    background-color: #ffffff;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: all 0.2s;
+    color: var(--text);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    background: var(--bg-panel);
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    box-shadow: 0 10px 18px rgba(15, 23, 42, 0.04);
 }
 
 #contato a:hover {
-    border-color: #0284c7;
-    color: #0284c7;
+    border-color: var(--accent);
+    background: rgba(245, 158, 11, 0.08);
+    color: var(--accent-strong);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 18px 14px 50px;
+    }
+
+    section {
+        padding: 24px 0;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.45rem;
+    }
+
+    #sobre img {
+        float: none;
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        margin: 14px 0 20px;
+    }
+
+    .cartao-projetos {
+        padding: 18px;
+    }
+
+    .cartao-projetos img {
+        max-height: 220px;
+    }
+
+    .botao-projeto a {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+
+    #contato ul {
+        flex-direction: column;
+    }
+
+    #contato a {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
 }
